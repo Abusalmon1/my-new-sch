@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Flow Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #studentFlowChart {
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Center the chart */
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <canvas id="studentFlowChart" width="400" height="200"></canvas>
+    <script src="script.js">
+        // Data for student flow
+const studentFlowData = {
+    labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+    datasets: [{
+        label: 'Number of Students',
+        data: [500, 550, 600, 650, 700, 750],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+    }]
+};
+
+// Options for the chart
+const studentFlowOptions = {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+};
+
+// Create the chart
+const ctx = document.getElementById('studentFlowChart').getContext('2d');
+const studentFlowChart = new Chart(ctx, {
+    type: 'line',
+    data: studentFlowData,
+    options: studentFlowOptions
+});
+
+    </script>
+</body>
+</html>
